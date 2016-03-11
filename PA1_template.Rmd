@@ -28,7 +28,7 @@ activity$date <-as.Date(activity$date) #String to date
 1. Calculate the total number of steps per day
 2. Using a histogram...
 
-```{r, echo=TRUE}
+```{r,avgstepsperday, fig.path="figure/"}
 
 steps.per.day <-aggregate(steps~date, activity, sum, na.action = na.omit)
 ggplot(steps.per.day, aes(x = steps)) +
@@ -46,7 +46,7 @@ Mean for the total number of steps is 10766.19.  Median for the total number of 
 <h2>What is the average daily activity pattern?</h2>
 1. Make a time-series plot of the 5-minute interval (x-axis) and average number of steps taken, averaged across all days (y-axis)
 
-```{r, echo = TRUE}
+```{r, avgdailysteps, fig.path="figure/"}
 avg.daily.steps.per.interval <-aggregate(activity["steps"],
                by = list(interval = activity$interval), FUN = mean, na.rm = TRUE)
 ggplot(avg.daily.steps.per.interval, aes(x = interval, y= steps))+
@@ -89,7 +89,7 @@ activity$steps <-mapply(function(steps, wday, interval){
   activity$steps, weekdays(activity$date), activity$interval)
 ```
 4. Make a histogram of total number of steps taken each day.  
-```{r, echo =TRUE}
+```{r, ttlstepsperday, fig.path="figure/"}
 steps.per.day <- aggregate(steps~date, activity, sum,   na.action = na.omit)
 ggplot(steps.per.day, aes(x=steps)) +
   geom_histogram(aes(fill=..count..), colour = "darkgreen", binwidth = 5000) +
@@ -113,7 +113,7 @@ activity$type <-factor(ifelse (weekdays(activity$date) %in% c("Saturday", "Sunda
                                "Weekend", "Weekday"))
 ```
 2. Make a panel plot with time series of 5-min. interval and average number of steps taken, averaged across all weekend or weekday days.
-```{r, echo=TRUE}
+```{r, timeavgsteps, fig.path="figure/"}
 steps.pattern.by.type <- aggregate(steps ~ interval + type, activity, mean, na.action = na.omit)
 
 ggplot(steps.pattern.by.type, aes(x=interval, y=steps))+

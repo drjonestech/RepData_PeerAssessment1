@@ -34,7 +34,7 @@ ggplot(steps.per.day, aes(x = steps)) +
                   labs(title = "Steps per day", x = "#Steps per Day", y = "Frequency(# Days)")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)
+![](figure/avgstepsperday-1.png)
 
 3. Calculate and report mean and median of the total number of steps taken per day:
 
@@ -56,7 +56,7 @@ ggplot(avg.daily.steps.per.interval, aes(x = interval, y= steps))+
   labs(title = "Average daily activity pattern", x = "Daily interval", y = " avg # steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-6-1.png)
+![](figure/avgdailysteps-1.png)
 2. Which 5 minute interval, on average across all days, contains the maximum number of steps?
 
 ```r
@@ -118,7 +118,7 @@ ggplot(steps.per.day, aes(x=steps)) +
                    labs(title = "Steps Per day", x = "# Steps per Day", y = "Frequency(#                      Days)")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-12-1.png)
+![](figure/ttlstepsperday-1.png)
 Calculate and report the mean and median total number of steps taken per day.
 
 ```r
@@ -147,5 +147,5 @@ ggplot(steps.pattern.by.type, aes(x=interval, y=steps))+
   labs(x = "Interval", y="Avg. steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-15-1.png)
+![](figure/timeavgsteps-1.png)
 Weekend interval have a higher and frequent interval with an average of 175 steps spread throughout the day, compared to weekday intervals, where is a high peak between 750 and 1000 intervals showing over 250 steps, but throughout the day lower intervals with steps ranging less than 125 steps.  
